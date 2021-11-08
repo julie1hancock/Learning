@@ -1,5 +1,6 @@
 package com.hancock.julie.jetpack.materialdesign
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -12,6 +13,7 @@ import androidx.compose.ui.text.font.FontFamily.Companion.SansSerif
 import androidx.compose.ui.text.font.FontFamily.Companion.Serif
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.font.FontWeight.Companion.Medium
 import androidx.compose.ui.text.font.FontWeight.Companion.Normal
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
@@ -22,23 +24,95 @@ import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
-import com.hancock.julie.jetpack.ui.theme.circle
-import com.hancock.julie.jetpack.ui.theme.colorsForTesting
-import com.hancock.julie.jetpack.ui.theme.diamond
-import com.hancock.julie.jetpack.ui.theme.dpSizesForTesting
-import com.hancock.julie.jetpack.ui.theme.floatListForTesting
-import com.hancock.julie.jetpack.ui.theme.getModifier
-import com.hancock.julie.jetpack.ui.theme.purple1
-import com.hancock.julie.jetpack.ui.theme.purple2
-import com.hancock.julie.jetpack.ui.theme.roundCorners
-import com.hancock.julie.jetpack.ui.theme.roundCorners2
-import com.hancock.julie.jetpack.ui.theme.shapesForTesting
-import com.hancock.julie.jetpack.ui.theme.six_sp
-import com.hancock.julie.jetpack.ui.theme.spSizesForTesting
-import com.hancock.julie.jetpack.ui.theme.teal1
-import com.hancock.julie.jetpack.ui.theme.ten_sp
-import com.hancock.julie.jetpack.ui.theme.wonkeyCorners
-import com.hancock.julie.jetpack.ui.theme.zero
+import androidx.compose.ui.unit.sp
+import com.hancock.julie.jetpack.ui.theme.*
+
+
+
+
+
+@Composable
+fun H1Text(text: String){
+    MaterialText(
+        text = text,
+        fontSize = ten_sp,
+        fontWeight = Medium
+    )
+}
+
+@Composable
+fun H2Text(text: String){
+    MaterialText(
+        text = text,
+        fontSize = eight_sp,
+        fontWeight = Medium
+    )
+}
+
+@Composable
+fun H3Text(text: String){
+    MaterialText(
+        text = text,
+        fontSize = six_sp,
+        fontWeight = Medium
+    )
+}
+
+@Composable
+fun H4Text(text: String){
+    MaterialText(
+        text = text,
+        fontSize = five_sp,
+        fontWeight = Medium
+    )
+}
+
+@Composable
+fun H5Text(text: String){
+    MaterialText(
+        text = text,
+        fontSize = four_sp,
+        fontWeight = Medium
+    )
+}
+
+@Composable
+fun P1Text(text: String){
+    MaterialText(
+        text = text,
+        fontSize = three_sp,
+        fontWeight = Medium
+    )
+}
+
+@Composable
+fun P2Text(text: String){
+    MaterialText(
+        text = text,
+        fontSize = two_sp,
+        fontWeight = Medium
+    )
+}
+
+@Composable
+fun P3Text(text: String){
+    MaterialText(
+        text = text,
+        fontSize = one_sp,
+        fontWeight = Medium
+    )
+}
+
+@Composable
+fun ButtonText(text: String){
+    MaterialText(
+        text = text.toUpperCase(),
+        fontSize = 14.sp,
+        fontWeight = Normal,
+        letterSpacing = 2.sp,
+        textAlign = TextAlign.Center
+    )
+}
 
 @Composable
 fun MaterialText(
@@ -54,7 +128,6 @@ fun MaterialText(
     underline: Boolean = false,
     lineThrough: Boolean = false,
     font: FontFamily = FontFamily.Default,
-
     padding: Dp? = zero,
     backgroundColor: Color? = null,
     width: Dp? = null,
@@ -90,24 +163,43 @@ fun MaterialText(
         textAlign = textAlign,
         overflow = overflow,
         maxLines = maxLines)
-
-//
-//
-//    val modifier = getModifier(
-//        size = size,
-//        shape = shape,
-//        padding = padding
-//    )
-//
-//    Image(
-//        painter = painterResource(id = icon),
-//        contentDescription = "",
-//        modifier = modifier,
-//        colorFilter = color?.let {
-//            ColorFilter.tint(color = color, blendMode = BlendMode.SrcIn)
-//        }
-//    )
 }
+
+
+
+
+//////////// FOR TESTING:
+val stringsForTesting: List<String> = listOf(
+    "",
+    "A",
+    "Julie",
+    "Hello, World!",
+    "Lorem ipsum dolor sit amet,",
+    "consectetur adipiscing elit. Nunc viverra fringilla arcu id commodo. ",
+    "Integer tristique dignissim nisi, mattis pharetra tellus faucibus sollicitudin. Nam rutrum diam a faucibus viverra. Mauris id mi augue. Quisque ultrices eros nec erat rutrum",
+    "In odio erat, suscipit aliquet cursus vel, mattis quis nisi. Cras nec justo consequat, sodales nisi at, scelerisque enim. Aenean sed massa sed enim commodo tristique quis in nunc. ",
+    "Aliquam in nibh fermentum, vehicula dui id, elementum purus. Quisque non tempor tellus. Donec sollicitudin mi vitae massa sollicitudin tristique. Maecenas at odio ligula. Nam sit amet risus mi. Nulla finibus et est eu sagittis. Quisque finibus ",
+    "vitae pharetra nisi volutpat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque id justo risus. Sed id tincidunt lorem. Nullam mollis nisi metus, a tempor nulla feugiat vel. Integer at tincidunt mi. Nam euismod orci et ante dapibus, interdum fermentum dolor aliquam.",
+    "Nam vulputate dictum magna eleifend molestie. Duis feugiat eget neque eget malesuada. Fusce eu sagittis lorem, eu venenatis arcu. Aenean consequat lectus quis leo suscipit lobortis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean nec auctor nulla. Fusce eget elit eget purus tempor molestie eu tempus nisi. Nullam non tempus turpis. Nulla facilisi. Morbi nec euismod purus.",
+    "Cras vel nisl sollicitudin, sagittis sem nec, cursus metus. Curabitur rhoncus nulla non consectetur dapibus. In vitae dapibus sapien. Praesent non hendrerit erat, eu volutpat ex. Nam ornare dignissim felis. Fusce faucibus blandit metus ac pharetra. Aliquam aliquet eget ante convallis imperdiet. Etiam in diam libero. Etiam ac blandit risus. Duis commodo neque sit amet erat convallis, at auctor elit porttitor. Curabitur ac lorem urna. Vivamus nisl nunc, gravida nec nibh vitae, laoreet facilisis velit. Aliquam id augue in arcu bibendum tristique non non velit. Vestibulum commodo ex eget sem rhoncus ullamcorper. Aliquam eget risus sit amet massa lacinia sollicitudin. Ut vestibulum molestie lacus, at varius diam lobortis in. Quisque feugiat vulputate elit vitae cursus. Ut tempus risus non pulvinar mollis. Nulla facilisi. Etiam dapibus nibh magna, consectetur malesuada metus eleifend ac. Duis nibh quam, scelerisque id arcu vitae, imperdiet rhoncus dolor. Ut sollicitudin nulla quam, et dapibus neque laoreet eu. Ut ac ipsum pulvinar, elementum ex non, sodales turpis. Nulla facilisi. Ut congue odio quis mauris dignissim, non rutrum lorem sollicitudin.",
+)
+class StringProvider : PreviewParameterProvider<String> {
+    override val values = sequenceOf(
+        "",
+        "A",
+        "Julie",
+        "Hello, World!",
+        "Lorem ipsum dolor sit amet,",
+        "consectetur adipiscing elit. Nunc viverra fringilla arcu id commodo. ",
+        "Integer tristique dignissim nisi, mattis pharetra tellus faucibus sollicitudin. Nam rutrum diam a faucibus viverra. Mauris id mi augue. Quisque ultrices eros nec erat rutrum",
+        "In odio erat, suscipit aliquet cursus vel, mattis quis nisi. Cras nec justo consequat, sodales nisi at, scelerisque enim. Aenean sed massa sed enim commodo tristique quis in nunc. ",
+        "Aliquam in nibh fermentum, vehicula dui id, elementum purus. Quisque non tempor tellus. Donec sollicitudin mi vitae massa sollicitudin tristique. Maecenas at odio ligula. Nam sit amet risus mi. Nulla finibus et est eu sagittis. Quisque finibus ",
+        "vitae pharetra nisi volutpat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque id justo risus. Sed id tincidunt lorem. Nullam mollis nisi metus, a tempor nulla feugiat vel. Integer at tincidunt mi. Nam euismod orci et ante dapibus, interdum fermentum dolor aliquam.",
+        "Nam vulputate dictum magna eleifend molestie. Duis feugiat eget neque eget malesuada. Fusce eu sagittis lorem, eu venenatis arcu. Aenean consequat lectus quis leo suscipit lobortis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean nec auctor nulla. Fusce eget elit eget purus tempor molestie eu tempus nisi. Nullam non tempus turpis. Nulla facilisi. Morbi nec euismod purus.",
+        "Cras vel nisl sollicitudin, sagittis sem nec, cursus metus. Curabitur rhoncus nulla non consectetur dapibus. In vitae dapibus sapien. Praesent non hendrerit erat, eu volutpat ex. Nam ornare dignissim felis. Fusce faucibus blandit metus ac pharetra. Aliquam aliquet eget ante convallis imperdiet. Etiam in diam libero. Etiam ac blandit risus. Duis commodo neque sit amet erat convallis, at auctor elit porttitor. Curabitur ac lorem urna. Vivamus nisl nunc, gravida nec nibh vitae, laoreet facilisis velit. Aliquam id augue in arcu bibendum tristique non non velit. Vestibulum commodo ex eget sem rhoncus ullamcorper. Aliquam eget risus sit amet massa lacinia sollicitudin. Ut vestibulum molestie lacus, at varius diam lobortis in. Quisque feugiat vulputate elit vitae cursus. Ut tempus risus non pulvinar mollis. Nulla facilisi. Etiam dapibus nibh magna, consectetur malesuada metus eleifend ac. Duis nibh quam, scelerisque id arcu vitae, imperdiet rhoncus dolor. Ut sollicitudin nulla quam, et dapibus neque laoreet eu. Ut ac ipsum pulvinar, elementum ex non, sodales turpis. Nulla facilisi. Ut congue odio quis mauris dignissim, non rutrum lorem sollicitudin.",
+    )
+}
+
 
 data class MaterialTextInfo(
     val text: String,
@@ -134,24 +226,7 @@ data class MaterialTextInfo(
     val clipShape: Shape? = null,
 )
 
-val stringsForTesting: List<String> = listOf(
-    "",
-    "A",
-    "Julie",
-    "Hello, World!",
-    "Lorem ipsum dolor sit amet,",
-    "consectetur adipiscing elit. Nunc viverra fringilla arcu id commodo. ",
-    "Integer tristique dignissim nisi, mattis pharetra tellus faucibus sollicitudin. Nam rutrum diam a faucibus viverra. Mauris id mi augue. Quisque ultrices eros nec erat rutrum",
-    "In odio erat, suscipit aliquet cursus vel, mattis quis nisi. Cras nec justo consequat, sodales nisi at, scelerisque enim. Aenean sed massa sed enim commodo tristique quis in nunc. ",
-    "Aliquam in nibh fermentum, vehicula dui id, elementum purus. Quisque non tempor tellus. Donec sollicitudin mi vitae massa sollicitudin tristique. Maecenas at odio ligula. Nam sit amet risus mi. Nulla finibus et est eu sagittis. Quisque finibus ",
-    "vitae pharetra nisi volutpat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque id justo risus. Sed id tincidunt lorem. Nullam mollis nisi metus, a tempor nulla feugiat vel. Integer at tincidunt mi. Nam euismod orci et ante dapibus, interdum fermentum dolor aliquam.",
-    "Nam vulputate dictum magna eleifend molestie. Duis feugiat eget neque eget malesuada. Fusce eu sagittis lorem, eu venenatis arcu. Aenean consequat lectus quis leo suscipit lobortis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean nec auctor nulla. Fusce eget elit eget purus tempor molestie eu tempus nisi. Nullam non tempus turpis. Nulla facilisi. Morbi nec euismod purus.",
-    "Cras vel nisl sollicitudin, sagittis sem nec, cursus metus. Curabitur rhoncus nulla non consectetur dapibus. In vitae dapibus sapien. Praesent non hendrerit erat, eu volutpat ex. Nam ornare dignissim felis. Fusce faucibus blandit metus ac pharetra. Aliquam aliquet eget ante convallis imperdiet. Etiam in diam libero. Etiam ac blandit risus. Duis commodo neque sit amet erat convallis, at auctor elit porttitor. Curabitur ac lorem urna. Vivamus nisl nunc, gravida nec nibh vitae, laoreet facilisis velit. Aliquam id augue in arcu bibendum tristique non non velit. Vestibulum commodo ex eget sem rhoncus ullamcorper. Aliquam eget risus sit amet massa lacinia sollicitudin. Ut vestibulum molestie lacus, at varius diam lobortis in. Quisque feugiat vulputate elit vitae cursus. Ut tempus risus non pulvinar mollis. Nulla facilisi. Etiam dapibus nibh magna, consectetur malesuada metus eleifend ac. Duis nibh quam, scelerisque id arcu vitae, imperdiet rhoncus dolor. Ut sollicitudin nulla quam, et dapibus neque laoreet eu. Ut ac ipsum pulvinar, elementum ex non, sodales turpis. Nulla facilisi. Ut congue odio quis mauris dignissim, non rutrum lorem sollicitudin.",
-)
 
-
-//
-//////////// FOR TESTING:
 class MaterialTextInfoProvider : PreviewParameterProvider<MaterialTextInfo> {
     private val text = "Hello world"
     private val textLong = "Cras vel nisl sollicitudin, sagittis sem nec, cursus metus. Curabitur rhoncus nulla non consectetur dapibus. In vitae dapibus sapien. Praesent non hendrerit erat, eu volutpat ex. Nam ornare dignissim felis. Fusce faucibus blandit metus ac pharetra. Aliquam aliquet eget ante convallis imperdiet. Etiam in diam libero. Etiam ac blandit risus. Duis commodo neque sit amet erat convallis, at auctor elit porttitor. Curabitur ac lorem urna. Vivamus nisl nunc, gravida nec nibh vitae, laoreet facilisis velit. Aliquam id augue in arcu bibendum tristique non non velit. Vestibulum commodo ex eget sem rhoncus ullamcorper. Aliquam eget risus sit amet massa lacinia sollicitudin. Ut vestibulum molestie lacus, at varius diam lobortis in. Quisque feugiat vulputate elit vitae cursus. Ut tempus risus non pulvinar mollis. Nulla facilisi. Etiam dapibus nibh magna, consectetur malesuada metus eleifend ac. Duis nibh quam, scelerisque id arcu vitae, imperdiet rhoncus dolor. Ut sollicitudin nulla quam, et dapibus neque laoreet eu. Ut ac ipsum pulvinar, elementum ex non, sodales turpis. Nulla facilisi. Ut congue odio quis mauris dignissim, non rutrum lorem sollicitudin."
@@ -280,3 +355,18 @@ fun PreviewMaterialText(@PreviewParameter(MaterialTextInfoProvider::class) info:
     )
 }
 
+@Preview
+@Composable
+fun PreviewTexts() {
+    Column {
+        H1Text(text = "Header 1")
+        H2Text(text = "Header 2")
+        H3Text(text = "Header 3")
+        H3Text(text = "Header 4")
+        H3Text(text = "Header 5")
+        P1Text(text = "Paragraph 1")
+        P2Text(text = "Paragraph 2")
+        P3Text(text = "Paragraph 3")
+        ButtonText(text = "Button text")
+    }
+}

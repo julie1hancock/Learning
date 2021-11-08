@@ -1,0 +1,55 @@
+ORDER HISTORY:
+
+- offline data
+- list orders
+    - each order:
+        - vendor (ex: amazon) (title & icon)
+        - shipping status (ex: new, shipped, delivered) w/ dates
+        - 1+ images of items in order
+- filter (later)
+- import order  (later)
+
+
+- activity_order_history.xml
+    - toolbar
+    - epoxy recyclerview
+- single_order.xml
+    - vendor title
+    - shipping status
+    - 1+ images
+- SingleOrderEpoxyView.kt
+    - binds ^^
+- OrderHistoryActivity
+    - viewModel: OrderHistoryViewModel
+    - binding = ActivityOrderHistoryBinding.inflate() //activity_order_history.xml
+    - viewModel.getOrders(observe (
+        binding.epoxyRv.setModels(it)
+    )}
+    - fun onLoadMore {
+        viewModel.loadMore()
+    }
+    - onDestroy { viewModel.destroy() }
+- OrderHistoryViewModel (interactor)
+    - val _orders: LiveData<List<SingleOrderEpoxyView>>
+    - disposable: CompositeDisposable
+    - interactor
+        .getOrders.subscribe({
+            _orders.val = listOrders.map { SingleOrderEpoxyView(it) }
+        },{
+            //
+        })
+    - fun getOrders = _orders
+    - fun destroy() {
+        disposable.clear()
+    }
+- OrderHistoryInteractor(service)
+    - fun getOrders(): Single<List<Order>>
+
+
+
+
+
+
+
+
+
